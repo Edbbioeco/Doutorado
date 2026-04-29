@@ -2,6 +2,8 @@
 
 library(tesseract)
 
+library(officer)
+
 # Importar PDF ----
 
 pdf <- tesseract::ocr("C:/Users/LENOVO/OneDrive/Documentos/Projeto doutorado/Anteprojeto - Ericles Charles.pdf")
