@@ -91,7 +91,7 @@ mapa_princ <- ggplot() +
                                "Endemism Pernambuco Center")) +
   labs(color = NULL,
        fill = NULL) +
-  coord_sf(xlim = c(-35, -41),
+  coord_sf(xlim = c(-41, -35),
            ylim = c(-10.5, -5),
            label_graticule = "NSWE") +
   ggspatial::annotation_scale(location = "bl",
@@ -106,3 +106,34 @@ mapa_princ <- ggplot() +
   ggview::canvas(height = 10, width = 12)
 
 mapa_princ
+
+## Insert mmap ----
+
+mapa_insert <- ggplot() +
+  geom_sf(data = estados,
+          color = "black",
+          fill = "gray",
+          linewidth = 0.5) +
+  geom_sf(data = cep,
+          color = "limegreen",
+          fill = "limegreen") +
+  geom_sf(data = ma,
+          color = "darkgreen",
+          fill = "transparent",
+          linewidth = 0.5) +
+  geom_sf(data = estados,
+          color = "black",
+          fill = "transparent",
+          linewidth = 0.5) +
+  geom_rect(aes(xmin = -41, xmax = -34.75,
+                ymin = -10.5, ymax = -5),
+            color = "darkred",
+            fill = "red",
+            linewidth = 0.75,
+            alpha = 0.3) +
+  theme_void() +
+  theme(legend.position = "none") +
+  ggview::canvas(height = 10, width = 12)
+
+mapa_insert
+
