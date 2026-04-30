@@ -33,7 +33,25 @@ estados_cep <- sf::st_read("estados_cep.shp")
 
 ### Visualizar ----
 
+estados_cep
+
 ggplot() +
   geom_sf(data = br, color = "black") +
   geom_sf(data = estados_cep, color = "black", fill = "goldenrod")
 
+## Mata Atlântica ----
+
+### Importar ----
+
+ma <- sf::st_read("biomas.shp") |>
+  dplyr::filter(name_biome == "Mata Atlântica")
+
+### Visualizar ----
+
+ma
+
+ggplot() +
+  geom_sf(data = br, color = "black") +
+  geom_sf(data = estados_cep, color = "black", fill = "goldenrod") +
+  geom_sf(data = ma, color = "forestgreen", fill = "forestgreen") +
+  geom_sf(data = br, color = "black", fill = "transparent")
