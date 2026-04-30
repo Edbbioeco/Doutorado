@@ -6,3 +6,8 @@
 .quarto
 .positai
 *.Rproj
+*.png
+*.shp
+*.shx
+*.dbf
+*.prj
