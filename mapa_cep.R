@@ -38,7 +38,7 @@ ma
 
 ggplot() +
   geom_sf(data = br, color = "black") +
-  geom_sf(data = ma, color = "forestgreen", fill = "forestgreen") +
+  geom_sf(data = ma, color = "limegreen", fill = "limegreen") +
   geom_sf(data = br, color = "black", fill = "transparent")
 
 ## CEP ----
