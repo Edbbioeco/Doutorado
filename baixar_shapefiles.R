@@ -75,4 +75,23 @@ ggplot() +
 ### Exportar ----
 
 biomas |> sf::st_write("biomas.shp")
+regiao |> sf::st_write("regiao.shp")
+
+## Estados do Centro de Endemismo Pernambuco ----
+
+### Filtrar ----
+
+estados_cep <- estados |>
+  dplyr::filter(abbrev_state %in% c("AL", "PE", "PB", "RN"))
+
+### Visualizar ----
+
+estados_cep
+
+ggplot() +
+  geom_sf(data = estados_cep)
+
+### Exportar ----
+
+estados_cep |> sf::st_write("estados_cep.shp")
 
