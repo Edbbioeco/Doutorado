@@ -8,7 +8,7 @@ library(ggspatial)
 
 library(ggview)
 
-library(patchwork)
+library(cowplot)
 
 # Dados ----
 
@@ -137,3 +137,14 @@ mapa_insert <- ggplot() +
 
 mapa_insert
 
+## Combinar mapas ----
+
+cowplot::ggdraw(mapa_princ) +
+  cowplot::draw_plot(mapa_insert,
+                     x = 0.08,
+                     y = 0.55,
+                     height = 0.425,
+                     width = 0.425) +
+  ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "mapa_cep.png", height = 10, width = 12)
