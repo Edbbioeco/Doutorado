@@ -75,7 +75,6 @@ ggplot() +
 ### Exportar ----
 
 biomas |> sf::st_write("biomas.shp")
-regiao |> sf::st_write("regiao.shp")
 
 ## Estados do Centro de Endemismo Pernambuco ----
 
@@ -94,4 +93,24 @@ ggplot() +
 ### Exportar ----
 
 estados_cep |> sf::st_write("estados_cep.shp")
+
+## Centro de Endemismo Pernambuco ----
+
+### Filtrar ----
+
+cep <- biomas |>
+  dplyr::filter(name_biome == "Mata Atlântica") |>
+  sf::st_intersection(estados_cep |>
+                        sf::st_union())
+
+### Visualizar ----
+
+cep
+
+ggplot() +
+  geom_sf(data = cep)
+
+### Exportar ----
+
+cep |> sf::st_write("cep.shp")
 
