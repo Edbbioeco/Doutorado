@@ -41,3 +41,21 @@ ggplot() +
 ### Exportar ----
 
 estados |> sf::st_write("estados.shp")
+
+## Estados ----
+
+### Baixar ----
+
+regiao <- geobr::read_region(year = 2019)
+
+### Visualizar ----
+
+regiao
+
+ggplot() +
+  geom_sf(data = regiao)
+
+### Exportar ----
+
+regiao |> sf::st_write("regiao.shp")
+
