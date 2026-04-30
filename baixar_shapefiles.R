@@ -42,7 +42,7 @@ ggplot() +
 
 estados |> sf::st_write("estados.shp")
 
-## Estados ----
+## Região ----
 
 ### Baixar ----
 
@@ -58,4 +58,21 @@ ggplot() +
 ### Exportar ----
 
 regiao |> sf::st_write("regiao.shp")
+
+## Biomas ----
+
+### Baixar ----
+
+biomas <- geobr::read_biomes()
+
+### Visualizar ----
+
+biomas
+
+ggplot() +
+  geom_sf(data = biomas)
+
+### Exportar ----
+
+biomas |> sf::st_write("biomas.shp")
 
