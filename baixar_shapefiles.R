@@ -24,3 +24,20 @@ ggplot() +
 ### Exportar ----
 
 br |> sf::st_write("br.shp")
+
+## Estados ----
+
+### Baixar ----
+
+estados <- geobr::read_state(year = 2019)
+
+### Visualizar ----
+
+estados
+
+ggplot() +
+  geom_sf(data = estados)
+
+### Exportar ----
+
+estados |> sf::st_write("estados.shp")
