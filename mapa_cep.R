@@ -16,7 +16,7 @@ library(patchwork)
 
 ### Importar ----
 
-br <- geobr::read_state(year = 2019)
+br <- sf::st_read("estados.shp")
 
 ### Visualizar ----
 
